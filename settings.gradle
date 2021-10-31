@@ -1,1 +1,3 @@
 rootProject.name = 'angularAuthentication'
+include 'basic'
+include 'form'
