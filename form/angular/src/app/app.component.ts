@@ -10,8 +10,12 @@ import { finalize } from "rxjs/operators";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor(private auth: AuthenticationService, private http: HttpClient, private router: Router) {
-    this.auth.authenticate(undefined, undefined);
+  constructor(
+    private auth: AuthenticationService,
+    private http: HttpClient,
+    private router: Router
+  ) {
+    this.auth.checkAuthenticationStatus();
   }
 
   logout() {

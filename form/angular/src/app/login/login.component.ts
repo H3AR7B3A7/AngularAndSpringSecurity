@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../auth/authentication.service';
 
@@ -19,10 +19,7 @@ export class LoginComponent {
   }
 
   login() {
-    this.auth.authenticate(this.credentials, () => {
-      this.router.navigateByUrl('/');
-    });
-    return false;
+    this.auth.authenticate(this.credentials);
   }
 
 }
