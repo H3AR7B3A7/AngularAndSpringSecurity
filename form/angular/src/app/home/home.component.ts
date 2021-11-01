@@ -8,12 +8,13 @@ import { AuthenticationService } from '../auth/authentication.service'
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+  greeting: { id: string, content: string } = { id: '', content: '' }
 
-  title = 'Demo'
-  greeting!: { id: number, content: string }
-
-  constructor(private auth: AuthenticationService, private http: HttpClient) {
-    http.get<{ id: number, content: string }>('resource').subscribe(data => this.greeting = data)
+  constructor(
+    private auth: AuthenticationService,
+    private http: HttpClient
+  ) {
+    http.get<{ id: string, content: string }>('resource').subscribe(data => this.greeting = data)
   }
 
   authenticated() { return this.auth.authenticated }
